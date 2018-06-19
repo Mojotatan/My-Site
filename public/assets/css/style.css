@@ -1,1 +1,71 @@
 body {margin: 0; font-family: Arial, Helvetica, sans-serif}
+a {text-decoration: none; color: inherit}
+a:hover {text-decoration: underline; color: inherit}
+
+img {width: 100%; display: block}
+
+.link {cursor: pointer}
+
+/* Menu */
+.menu {
+  position: relative;
+  width: 100%;
+  height: 200px
+}
+.menu > * {position: absolute}
+.menu .divider {
+  height: 160px;
+  width: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.menu .link {
+  font-size: 48px;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.menu .link:hover {
+  text-decoration: none
+}
+.menu .link.left {right: calc(50% + 20px)}
+.menu .link.right {left: calc(50% + 20px)}
+
+.menu .active::after, .menu .link:hover::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px
+}
+
+/* Submenu */
+.submenu {
+  /* margin-top: 20px; */
+  margin-bottom: 10px;
+  display: flex;
+  width: calc(50% - 20px)
+}
+.submenu > * {
+  padding: 15px;
+  position: relative
+}
+.submenu .active::after, .submenu > *:hover::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: calc(100% - 30px);
+  height: 2px
+}
+
+/* Professional */
+.professional {background-color: white; color: black}
+.professional .menu .divider {background-color: black}
+.professional .active::after, .professional .menu .link:hover::after, .professional .submenu > *:hover::after {background-color: black}
+.professional .submenu {margin-right: calc(50% + 20px); justify-content: flex-end}
+
+/* Personal */
+.personal {background-color: black; color: white}
+.personal .menu .divider {background-color: white}
+.personal .active::after, .personal .menu .link:hover::after, .personal .submenu > *:hover::after {background-color: white}
+.personal .submenu {margin-left: calc(50% + 20px); justify-content: flex-start}

@@ -1,16 +1,11 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Route, BrowserRouter as Router} from 'react-router-dom'
 import {render} from 'react-dom'
-import {BrowserRouter as Router} from 'react-router-dom'
 
-import Menu from './components/menu'
+import App from './app'
 
 render((
   <Router>
-    <div className="app">
-      <main>
-        <Menu />
-        {/* <Route path="/hangman" component={Menu} /> */}
-      </main>
-    </div>
+    <Route path='/' component={App} />
   </Router>
 ), document.getElementById('app'))
